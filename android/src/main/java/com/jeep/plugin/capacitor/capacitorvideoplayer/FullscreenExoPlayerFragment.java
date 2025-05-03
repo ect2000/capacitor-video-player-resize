@@ -122,6 +122,7 @@ public class FullscreenExoPlayerFragment extends Fragment {
   public String accentColor;
   public Boolean chromecast;
   public String artwork;
+  public String resizeMode = "fit";  // default
 
   private static final String TAG = FullscreenExoPlayerFragment.class.getName();
   public static final long UNKNOWN_TIME = -1L;
@@ -225,6 +226,17 @@ public class FullscreenExoPlayerFragment extends Fragment {
     resizeBtn = view.findViewById(R.id.exo_resize);
     cast_image = view.findViewById(R.id.cast_image);
     mediaRouteButton = view.findViewById(R.id.media_route_button);
+    switch (resizeMode) {
+        case "fit":
+            styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
+            break;
+        case "fill":
+            styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL);
+        case "zoom":
+            styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM);
+        default:
+            styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
+    }
     styledPlayerView.setShowPreviousButton(false);
     styledPlayerView.setShowNextButton(false);
     styledPlayerView.setShowFastForwardButton(false);

@@ -138,6 +138,8 @@ public class CapacitorVideoPlayerPlugin extends Plugin {
             return;
         }
         mode = _mode;
+        String _resize = call.getString("resizeMode");
+        String resizeMode = (_resize != null) ? _resize.toLowerCase() : "fill";
         playerId = call.getString("playerId");
         if (playerId == null) {
             ret.put("message", "Must provide a PlayerId");
@@ -942,7 +944,8 @@ public class CapacitorVideoPlayerPlugin extends Plugin {
               isTV,
               playerId,
               false,
-              null
+              null,
+              resizeMode
             );
           } else {
             Map<String, Object> info = new HashMap<String, Object>() {
