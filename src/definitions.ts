@@ -107,6 +107,10 @@ export interface capVideoPlayerOptions {
    */
   mode?: string;
   /**
+   * Fullscreen resize mode ("fit", "fill", "zoom")
+   */
+  resizeMode?: string;
+  /**
    * The url of the video to play
    */
   url?: string;
