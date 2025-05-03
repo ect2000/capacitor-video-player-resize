@@ -1,7 +1,7 @@
 import Hls from 'hls.js';
 import { videoTypes, possibleQueryParameterExtensions } from './video-types';
 export class VideoPlayer {
-    constructor(mode, url, playerId, rate, exitOnEnd, loopOnEnd, container, zIndex, width, height) {
+    constructor(mode, url, playerId, rate, exitOnEnd, loopOnEnd, container, zIndex, width, height, resizeMode) {
         this.pipMode = false;
         this._videoType = null;
         this._videoContainer = null;
@@ -10,6 +10,7 @@ export class VideoPlayer {
         this._videoRate = 1.0;
         this._videoExitOnEnd = true;
         this._videoLoopOnEnd = false;
+        this._resizeMode = 'fit';
         this._url = url;
         this._container = container;
         this._mode = mode;
@@ -21,6 +22,7 @@ export class VideoPlayer {
         this._playerId = playerId;
         this._videoExitOnEnd = exitOnEnd;
         this._videoLoopOnEnd = loopOnEnd;
+        this._resizeMode = resizeMode !== null && resizeMode !== void 0 ? resizeMode : 'fit';
     }
     async initialize() {
         // get the video type

@@ -18,7 +18,8 @@ export declare class VideoPlayer {
     private _videoRate;
     private _videoExitOnEnd;
     private _videoLoopOnEnd;
-    constructor(mode: string, url: string, playerId: string, rate: number, exitOnEnd: boolean, loopOnEnd: boolean, container: any, zIndex: number, width?: number, height?: number);
+    private _resizeMode;
+    constructor(mode: string, url: string, playerId: string, rate: number, exitOnEnd: boolean, loopOnEnd: boolean, container: any, zIndex: number, width?: number, height?: number, resizeMode?: 'fit' | 'fill' | 'zoom');
     initialize(): Promise<void>;
     private createVideoElement;
     private _goFullscreen;
