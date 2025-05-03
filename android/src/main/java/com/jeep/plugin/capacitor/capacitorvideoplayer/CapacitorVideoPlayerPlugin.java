@@ -1123,7 +1123,8 @@ public class CapacitorVideoPlayerPlugin extends Plugin {
                                 isTV,
                                 fsPlayerId,
                                 true,
-                                videoId
+                                videoId,
+                                resizeMode
                             );
                         } else {
                             Toast.makeText(context, "No Video files found ", Toast.LENGTH_SHORT).show();
@@ -1162,7 +1163,8 @@ public class CapacitorVideoPlayerPlugin extends Plugin {
         Boolean isTV,
         String playerId,
         Boolean isInternal,
-        Long videoId
+        Long videoId,
+        String resizeMode
     ) {
         Log.v(TAG, "§§§§ createFullScreenFragment chromecast: " + chromecast);
 
@@ -1188,7 +1190,8 @@ public class CapacitorVideoPlayerPlugin extends Plugin {
                 isTV,
                 playerId,
                 isInternal,
-                videoId
+                videoId,
+                resizeMode
             );
         bridge
             .getActivity()
