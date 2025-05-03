@@ -486,7 +486,7 @@ public class FullscreenExoPlayerFragment extends Fragment {
       Log.d(TAG, "Video path wrong or type not supported");
       Toast.makeText(context, "Video path wrong or type not supported", Toast.LENGTH_SHORT).show();
     }
-    adjustAspectRatio();
+    // adjustAspectRatio();
     return view;
   }
 
