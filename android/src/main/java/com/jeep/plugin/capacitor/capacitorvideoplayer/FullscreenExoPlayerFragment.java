@@ -1406,17 +1406,39 @@ public class FullscreenExoPlayerFragment extends Fragment {
 
   private final class EmptyCallback extends MediaRouter.Callback {}
 
-  @Override
-  public void onConfigurationChanged(Configuration newConfig) {
-    super.onConfigurationChanged(newConfig);
-    adjustAspectRatio();
-  }
+  // @Override
+  // public void onConfigurationChanged(Configuration newConfig) {
+  //   super.onConfigurationChanged(newConfig);
+  //   adjustAspectRatio();
+  // }
 
-  private void adjustAspectRatio() {
-    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-      styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL);
-    } else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+  // private void adjustAspectRatio() {
+  //   if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+  //     styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL);
+  //   } else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+  //     styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
+  //   }
+  // }
+
+  @Override
+public void onConfigurationChanged(Configuration newConfig) {
+  super.onConfigurationChanged(newConfig);
+  applyRequestedResizeMode();
+}
+
+private void applyRequestedResizeMode() {
+  switch (resizeMode) {
+    case "fit":
       styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
-    }
+      break;
+    case "fill":
+      styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL);
+      break;
+    case "zoom":
+      styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM);
+      break;
+    default:
+      styledPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
   }
+}
 }
