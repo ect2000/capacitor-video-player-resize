@@ -57,6 +57,7 @@ public class CapacitorVideoPlayerPlugin extends Plugin {
     private Boolean isTV;
     private String fsPlayerId;
     private String mode;
+    private String resizeMode = "fit";
     private Boolean exitOnEnd = true;
     private Boolean loopOnEnd = false;
     private Boolean pipEnabled = true;
@@ -139,7 +140,8 @@ public class CapacitorVideoPlayerPlugin extends Plugin {
         }
         mode = _mode;
         String _resize = call.getString("resizeMode");
-        String resizeMode = (_resize != null) ? _resize.toLowerCase() : "fill";
+        String _resizeMode = (_resize != null) ? _resize.toLowerCase() : "fill";
+        resizeMode = _resizeMode;
         playerId = call.getString("playerId");
         if (playerId == null) {
             ret.put("message", "Must provide a PlayerId");

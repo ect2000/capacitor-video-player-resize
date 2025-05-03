@@ -24,7 +24,6 @@ export class VideoPlayer {
   private _videoRate = 1.0;
   private _videoExitOnEnd = true;
   private _videoLoopOnEnd = false;
-  private _resizeMode: 'fit' | 'fill' | 'zoom' = 'fit';
 
   constructor(
     mode: string,
@@ -37,7 +36,6 @@ export class VideoPlayer {
     zIndex: number,
     width?: number,
     height?: number,
-    resizeMode?: 'fit' | 'fill' | 'zoom',
   ) {
     this._url = url;
     this._container = container;
@@ -50,7 +48,6 @@ export class VideoPlayer {
     this._playerId = playerId;
     this._videoExitOnEnd = exitOnEnd;
     this._videoLoopOnEnd = loopOnEnd;
-    this._resizeMode = resizeMode ?? 'fit';
   }
 
   public async initialize(): Promise<void> {
